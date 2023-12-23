@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+
+{% endblock %} {% block content %}
+
+
+<div class="my1">
+  <form class="for" method="POST" action="/signup"> 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+      </ul>
+    {% endif %}
+    {% endwith %}
+
+
+    <div class="mb">
+        <label for="firstname1" class="form-label">First Name</label><br>
+        <input type="text" class="fos" id="firstname1" name="firstname1" placeholder="Enter First Name">
+    </div>
+    <div class="mb">
+        <label for="lastname1" class="form-label">Last Name</label><br>
+        <input type="text" class="fos" id="lastname1" name="lastname1" placeholder="Enter Last Name">
+    </div>
+    <div class="mb">
+        <label for="age1" class="form-label">Age</label><br>
+        <input type="number" class="fos" id="age1" name="age1" placeholder="Enter Age">
+    </div>
+    <div class="mb">
+        <label for="gender1" class="form-label">Gender</label><br>
+        <input type="text" class="fos" id="gender1" name="gender1" placeholder="Enter Gender">
+    </div>
+    
+    <div class="mb">
+      <label for="email1" class="form-label">Email address</label><br>
+      <input type="email" class="fos" id="email1" aria-describedby="emailHelp" name="email1" placeholder="Enter Email Address">
+    </div>
+    <div class="mb">
+      <label for="password1" class="form-label">Password</label><br>
+      <input type="password" class="fos" id="password1" name="password1" placeholder="Enter Password">
+    </div>
+    <div class="mb">
+        <label for="confirm_password1" class="form-label">Confirm Password</label><br>
+        <input type="password" class="fos" id="confirm_password1" name="confirm_password1" placeholder="Enter Confirm_Password">
+    </div>
+
+    <div class="mb form-check">
+      <input type="checkbox" class="form-check-input" id="checkme" name="checkme">
+      <label class="form-check-label" for="checkme">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+  </form>
+
+</div>
+
+
+
+
+{% endblock %}

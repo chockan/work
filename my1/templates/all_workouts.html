@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %} {% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+
+    <!-- Bootstrap CSS -->
+    
+
+
+{% endblock %} {% block content %}
+
+<div class="my1">
+    <form > 
+        <div>
+            <h1>
+                Welcome, {{ user.name }}!
+            </h1>
+            <table class="table table-hover" style="width: 900px;">
+              <thead class="thead-dark">
+                  <tr class="a">
+                      <th class="a">workout Area</th>
+                      <th class="a">Number of sets</th>
+                      <th class="a">Performed At</th>
+                      <th class="a">Comments</th>
+                      <th class="a">Edit Action</th>
+                      <th class="a">Delete Action</th>
+                  </tr>
+              </thead>
+              <tbody >
+                  {% for workout in workouts %}
+                  <tr class="a">
+                      <td>{{ workout.workout_body_area }}</td>
+                      <td>{{ workout.number_of_sets }}</td>
+                      <td>{{ workout.date_posted }}</td>
+                      <td>{{ workout.comment }}</td>
+                      <td>
+                          <a href="{{ url_for('update_workout', workout_id=workout.id) }}" class="btn" role="button" type="button">Edit</a><br>
+                      </td>
+                      <td>
+                          <a href="{{ url_for('delete_workout', workout_id=workout.id) }}" class="btn btn-outline-danger" role="button">Delete</a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+
+
+        
+          
+        </div>
+
+    </form>
+  
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+
+{% endblock %} {% block content %}
+
+
+
+
+
+
+<div class="my1">
+    <form method="POST" action="/new">
+      <h3>Add New Workout</h3>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="notification is-danger">
+        {{ messages[0] }}
+      </div>
+      {% endif %} {% endwith %}
+      <div class="mb">
+        <label for="pushups" class="mb1">Enter the workout area</label><br>
+        <input
+          type="text"
+          class="fo"
+          id="pushups"
+          name="pushups"
+          aria-describedby="pushupHelp"
+          placeholder="Enter name of workout body area"
+        />
+      </div>
+      <div class="mb">
+        <label for="number_of_sets" class="mb1">Enter no of sets</label><br>
+        <input
+          type="number"
+          class="fo"
+          id="number_of_sets"
+          name="number_of_sets"
+          aria-describedby="pushupHelp"
+          placeholder="Enter number of sets"
+        />
+      </div>
+      <div class="mb">
+        <label for="comment">Comment</label><br>
+        <input
+          type="text"
+          class="fo"
+          id="comment"
+          name="comment"
+          aria-describedby="pushupHelp"
+          placeholder="any comments"
+        />
+      </div >
+      <div class="mb">
+        <button type="submit">Add Workout</button>
+
+      </div>
+      
+    </form>
+  </div>
+  
+
+
+{% endblock %}

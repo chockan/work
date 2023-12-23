@@ -1,0 +1,131 @@
+*{
+    font-family: 'Merriweather', serif;
+    letter-spacing: 1px;
+}
+h1,h2,h3,span{
+    font-family: 'Merriweather', serif;
+    letter-spacing: 1.7px;
+
+}
+
+:root{
+    
+    --big-font_size:2rem;
+    --h2-font-size:1.5rem;
+    --normal-font-size:0.938rem;
+}
+body{
+    margin:var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--second-color);
+}
+
+
+.bd_grid{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns:100%;
+    grid-column-gap:2rem;
+    width:calc(100%-2rem);
+    margin-left: 1rem;
+    margin-right:1rem ;
+
+}
+/*header section*/
+
+.header{
+    width: 100%;
+    background-color: rgb(71, 70, 70);
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100; 
+
+    
+}
+
+/*navbar*/
+
+ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    height:5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight:600px;
+    text-decoration: none;
+}
+.nav_list{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    position: relative;
+    left: 100px;
+    
+}
+.nav_toggle,.nav_toggle2{
+    display:none;
+}
+.nav_list li{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px  20px 20px 40px;
+}
+.nav_list li a{
+    color: #fff;
+}
+a.nav_link:hover{
+    color:rgb(111, 163, 111);
+}
+a.nav_link:active {
+  color: rgb(90, 23, 54); /* Change to the color you prefer */
+}
+
+
+
+
+
+
+/*header section*/
+
+@media screen and (max-width: 768px){
+    .nav_toggle,.nav_toggle2{
+        display:flex;
+        cursor: pointer;
+        color: #fff;
+    }
+    .nav_list {
+        display:inline-block;
+        position: fixed;
+        top: 3rem;
+        width: 50%;
+        height:100%;
+        padding: 0.3rem;
+        background-color: rgb(56, 52, 52);
+        right: -100%;
+        transition: 1s;
+        
+    }
+    .nav_list i{
+        display:block;
+        font-size:20px;
+        color:#fff;
+        position: absolute;
+        top:3px;
+        left: 40px;
+        cursor: pointer;
+    
+    }
+
+
+}

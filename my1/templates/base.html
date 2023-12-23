@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!--box icons-->
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--link css-->
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <!--Bootstrap-->
+    
+    
+    {% endblock %}
+</head>
+<body>
+    
+    <header class="header" >
+        <nav class="nav bd_grid">
+            <div>
+                <a href="{{ url_for('index') }}" class="nav_logo" style="color:#fff;font-size: 25px;padding-left: 20px;">WORKOUTS&nbsp;Logger </a>
+            </div>
+            <div class="nav_menu" id="nav_menu">
+                <ul class="nav_list"   >
+                    <li class="nav_items"><a href="{{ url_for('index') }}" class="nav_link active">Home</a></li>
+                    <li class="nav_items"><a href="{{ url_for('index') }}" class="nav_link active">About</a></li>
+                    <li class="nav_items"><a href="{{ url_for('user_workouts') }}" class="nav_link active">ALL&nbsp;WORKOUTS</a></li>
+                    <li class="nav_items"><a href="{{ url_for('profile') }}" class="nav_link active">ACCOUNT</a></li>
+
+                    {% if current_user.is_authenticated %}
+                    <li class="nav_items">
+                        <a href="{{ url_for('new_workout') }}" class="nav_link active">Add&nbsp;New&nbsp;Workouts</a></li>
+                    {% endif %} 
+
+                    {% if not current_user.is_authenticated %}
+                    <li class="nav_items">
+                        
+                        <a href="{{ url_for('login') }}" class="nav_link active">LOGIN</a></li>
+                    {% endif %}
+
+                    {% if not current_user.is_authenticated %}
+                    <li class="nav_items">
+                        <a href="{{ url_for('signup') }}" class="nav_link active">SIGNUP</a></li>
+                    {% endif %}
+
+
+                    {% if current_user.is_authenticated %}
+                    <li class="nav_items">
+                        <a href="{{ url_for('logout') }}" class="nav_link active">Logout</a></li>
+                    {% endif %} 
+
+                    <div class="nav_toggle2" id="nav_toggle2"><i id="decr" class='bx bx-window-close' onclick="my1()" ></i></div>
+                </ul>
+            </div>
+        
+            <div class="nav_toggle" id="nav_toggle" ><i style="color: #fff;" class='bx bx-menu-alt-right' onclick="my2()"></i></div>
+        
+        </nav>
+
+    
+    </header>
+    {% block content %}
+     {% endblock %}
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+
+
+
+{% endblock %} {% block content %}
+
+<div class="a">
+
+    <h1 style="color: #fff;">Hello!</h1>
+    <h2>Welcome to WORKOUTS Logger</h2>
+    <p>At WORKOUTS Logger, we believe that fitness isn't just about working out.<br> It's a lifestyle, a community, and a journey towards a healthier and happier you.</p>
+    <button type="button">contact</button>
+    <a href="{{url_for('static',filename='index.html')}}"><img src="{{url_for('static',filename='images/gym3.jpg')}}" alt="image" ></a>
+     
+</div>
+
+
+{% endblock %}

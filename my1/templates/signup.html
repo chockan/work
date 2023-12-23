@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+
+{% endblock %}  {% block content %}
+
+
+
+<div class="my1">
+  <form class="for" method="POST" action="/login">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+      </ul>
+    {% endif %}
+    {% endwith %}
+
+
+    
+    <div class="mb">
+      <label for="email1" class="form-label">Email address</label><br>
+      <input type="email" class="fo" id="email1" aria-describedby="emailHelp" name="email1" placeholder="Enter Email Address">
+    </div>
+    <div class="mb">
+      <label for="password1" class="form-label">Password</label><br>
+      <input type="password" class="fo" id="password1" name="password1" placeholder="Enter Password">
+    </div>
+    
+
+    <div class="mb">
+      <input type="checkbox" class="form-check-input" id="remember1" name="remember1">
+      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+    </div>
+    <button type="submit" class="btn">login</button>
+  </form>
+
+
+</div>
+
+
+
+{% endblock %}
